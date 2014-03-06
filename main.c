@@ -151,18 +151,14 @@ int main(int argc, char *argv[])
       lon = -temp;
       coords_set |= LON_SET;
     }
-	if (2 == sscanf(argv[i], "%lf%1[Ee]", &temp, hemisphere)) {
-        lon = temp;
-        coords_set |= LON_SET;
-	}
     /* this looks different from the others because 77E 
        parses as scientific notation */
-    /*if (2 == sscanf(argv[i], "%lf%c", &temp, hemisphere)
+    if (1 == sscanf(argv[i], "%lf", &temp)
 	&& (argv[i][strlen(argv[i])-1] == 'E' ||
 	    argv[i][strlen(argv[i])-1] == 'e')) {
       lon = temp;
       coords_set |= LON_SET;
-    }*/
+    }
 
     for (j=0; options[j].label; j++) {
       if (strstr(argv[i], options[j].label)) {
